@@ -1,6 +1,6 @@
 # Go Practice — Hitesh
 
-A progressive series of Go exercises (01–10) covering fundamentals from Hello World to structs.
+A progressive series of Go exercises (01–15) covering fundamentals from Hello World to methods on structs.
 
 | # | Topic | Details |
 |---|-------|---------|
@@ -14,5 +14,10 @@ A progressive series of Go exercises (01–10) covering fundamentals from Hello 
 | 08 | Slices | Dynamic arrays, slice operations |
 | 09 | Maps | Key-value stores and common map usage |
 | 10 | Structs | Define and use structs for structured data |
+| 11 | If/Else | Conditional branching with if/else statements |
+| 12 | Switch | Switch statements with multiple cases |
+| 13 | Loops | For loops, range loops, break/continue/goto |
+| 14 | Functions | Define functions, variadic functions |
+| 15 | Methods | Methods on structs, pointer vs value receivers |
 
 Each directory is a standalone program. Run with `go run main.go` (or the appropriate `.go` file).
