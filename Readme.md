@@ -19,5 +19,9 @@ A progressive series of Go exercises (01–15) covering fundamentals from Hello 
 | 13 | Loops | For loops, range loops, break/continue/goto |
 | 14 | Functions | Define functions, variadic functions |
 | 15 | Methods | Methods on structs, pointer vs value receivers |
+| 16 | Defer | Defer statements for delayed execution |
+| 17 | File I/O | File operations: create, write, read files |
+| 18 | Web Requests | HTTP requests using net/http package |
+| 19 | URL Parsing | Parse and inspect URLs using net/url |
 
 Each directory is a standalone program. Run with `go run main.go` (or the appropriate `.go` file).
