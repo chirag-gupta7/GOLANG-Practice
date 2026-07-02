@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
 // Model for Cource -File
@@ -39,4 +41,20 @@ func getAllCources(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Get All Cources")
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(cources)
+}
+
+func getOneCource(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Get One Cource")
+	w.Header().Set("Content-Type", "application/json")
+
+	parameters := mux.Vars(r)
+
+	for _, cource := range cources {
+		if cource.CourceId == parameters["id"] {
+			json.NewEncoder(w).Encode(cource)
+			return
+		}
+	}
+	json.NewEncoder(w).Encode("No Cource found in given ID")
+	return
 }
