@@ -3,7 +3,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"math/rand/v2"
 	"net/http"
+	"strconv"
 
 	"github.com/gorilla/mux"
 )
@@ -57,4 +59,31 @@ func getOneCource(w http.ResponseWriter, r *http.Request) {
 	}
 	json.NewEncoder(w).Encode("No Cource found in given ID")
 	return
+}
+
+func createOneCourse(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Create One Cource")
+	w.Header().Set("Content-Type", "application/json")
+
+	if r.Body == nil {
+		json.NewEncoder(w).Encode("No data found in request body")
+		return
+	}
+
+	var cource Cource
+
+	_ = json.NewDecoder(r.Body).Decode(&cource)
+
+	if cource.IsEmpty() {
+		json.NewEncoder(w).Encode("No data found in request body")
+		return
+	}
+
+	// rand.Seed(time.Now().UnixNano())
+
+	cource.CourceId = strconv.Itoa(rand.IntN(100))
+	cources = append(cources, cource)
+	json.NewEncoder(w).Encode(cource)
+	return
+
 }
