@@ -108,7 +108,24 @@ func updataOneCource(w http.ResponseWriter, r *http.Request) {
 
 		}
 	}
-	json.NewEncoder(w).encode("No Cource found in given ID")
+	json.NewEncoder(w).Encode("No Cource found in given ID")
 	return
 
+}
+
+func deleteOneCource(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Delete One Cource")
+	w.Header().Set("Content-Type", "application/json")
+
+	params := mux.Vars(r)
+
+	for index, cource := range cources {
+		if cource.CourceId == params["id"] {
+			cources = append(cources[:index], cources[index+1:]...)
+			json.NewEncoder(w).Encode("Cource Deleted Successfully")
+			return
+		}
+	}
+	json.NewEncoder(w).Encode("No Cource found in given ID")
+	return
 }
